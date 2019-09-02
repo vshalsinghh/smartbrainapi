@@ -28,9 +28,7 @@ const app = express();
  app.use(cors())
 
 
-app.get('/', (req,res) => {
-	res.send(database.users)
-})
+app.get('/', (req,res) => {	res.send("this  app works")})
 
 app.post('/signin',signin.handleSignin(db, bcrypt))
 //register
