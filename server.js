@@ -13,8 +13,11 @@ const port =process.env.PORT || 3000;
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
-  	ssl: true,
+  	host: 'ec2-54-83-9-36.compute-1.amazonaws.com',
+  	user: 'xlyofypvvuhukv',
+  	password: '48c12acec63c54cbb5b77a62720f573964060d392d43524f5413df3f6679c593',
+  	database: 'd25pebs3l1iji9',
+
   }
 });
 
@@ -26,7 +29,7 @@ const app = express();
  app.use(cors())
 
 
-app.get('/', (req,res) => {	res.send(`this  app works on port ${port}`)})
+app.get('/', (req,res) => {res.send(database.users) } )
 
 app.post('/signin',signin.handleSignin(db, bcrypt))
 //register
